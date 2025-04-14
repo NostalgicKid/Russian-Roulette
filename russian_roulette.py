@@ -2,29 +2,44 @@
 # NOT FINISHED YET!!!
 import random
 
-user_prompt = input("Would you like to start the game?\nYes / No\n")
+barrel = 5 * [''] + ['b']
 
-
-barell = 5 * [''] + ['b']
-
-
-person_name_1 = input("E")
- 
 def russian_roullete_part_one():
-    print("\n\n\nRainy night, Calmness and Fireplace... So we're starting!\n")
-    print("Welcome to Russian roulette,", end="")
-    print("We have a revolver that has 6 bumps and in one of them - theres a BULLET!!!")
+    print("\n\n\nRainy night, Calmness and Fireplace... So we're starting!")
+    print("Welcome to Russian roulette,", end=" ")
+    print("We have a revolver that has 6 bumps and in one of them - theres a BULLET!!!\n")
+    person_1_name = input("Enter your name please    ")
+    print(f"Welcome {person_1_name}. You're starting the game against Shahar Zori.")
     
-    while person_1 or person_2 not in ['b']:
-        random.shuffle(barell)
-        person_1 = random.choice()
-if user_prompt == 'yes':
-    print(ru ss ian_roullete_part_one())
-else:
-    user_prompt = input("What? Enter Yes or No! ") 
-    while user_prompt.lower() not in ('yes', 'no'):
-        user_prompt = "What..? again, Enter 'Yes' or 'No'."
-    if user_prompt.lower() == 'yes':
-        print(russian_roullete_part_one())
+
+    while True: 
+        print("\n\n|MR. SHAHAR ZORI SHUFLING THE BARREL|\n\n")
+        random.shuffle(barrel)
+        shahar_zori = random.choice(barrel)
+        if shahar_zori == 'b':
+            print(f"Mr.Shahar Zori died. Today is your lucky night Mr. {person_1_name}. Go home.")
+            break
+        else:
+            print(f"Lucky Shahar... Your turn Mr. {person_1_name}")
+            while True:
+                random.shuffle(barrel)
+                person_1 = random.choice(barrel)
+                if person_1 == 'b':
+                    print(f"Goodbye Mr. {person_1_name}... Zori, Go home!")
+                    break
+                else:
+                    print("Fucking lucky boy! SHAHAR, YOUR TURN!!!")
+                    break
+
+
+while True:
+    user_prompt = input("Would you like to start the game?\nYes / No\n").strip().lower()
+    
+    if user_prompt == 'yes':
+        russian_roullete_part_one()
+        break
+    elif user_prompt == 'no':
+        print("\n\nOh, Have a Good night!")
+        break
     else:
-        print('GoodBye Dear, Have a nice rainy night!')
+        print("\nWhat? Just enter 'Yes' or 'No'...\n")
